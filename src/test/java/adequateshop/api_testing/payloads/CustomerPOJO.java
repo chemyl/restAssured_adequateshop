@@ -1,9 +1,19 @@
 package adequateshop.api_testing.payloads;
 
-public class NewCustomerPOJO {
+public class CustomerPOJO {
 
+    int id;
     String name;
     String email;
+    String location;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -29,10 +39,4 @@ public class NewCustomerPOJO {
         this.location = location;
     }
 
-    String location;
-//
-//            "name": "string",
-//            "email": "string",
-//            "location": "string"
-//    }
 }
