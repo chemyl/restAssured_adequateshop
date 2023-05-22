@@ -1,16 +1,17 @@
-Lightweight and powerful hybrid framework for API testing 
+## **Lightweight and powerful hybrid framework for API testing**
 ===================================================================
-## Under construction
-## **1. About:**
-The project contains a suitable framework for easily testing various types of rest-based service APIs.
-=>>> CRUD Requests
-=>>> JSON Schema Validation
-=>>> POJO Configuration
-=>>> Clear Routes architecture
-=>>> DDT with XLS to POJO
-=>>> DDT with @DataProvider
-=>>> Allure Surefire Report
-=>>> 
+#### Under construction
+The project contains a suitable framework for easily testing and validation various types of rest-based service APIs.
+* =>>> CRUD Requests
+* =>>> JSON Schema Validation
+* =>>> POJO Configuration
+* =>>> Clear Routes architecture
+* =>>> DDT with XLS to POJO
+* =>>> DDT with @DataProvider
+* =>>> Allure Surefire Report
+* =>>> TestNG.xml file configuration
+* =>>> 
+
 #### 1.2 Based on:
 Java 11; Maven ; TestNG 7.7.1; RestAssured 5.3.0; 
 
@@ -31,7 +32,7 @@ src/test/resources:
 
 1. Java 11 Required. goTo "Settings" > "Build, Execution, Deployment" > "Build Tools" > "Maven > Runner > JRE"
 
-## **2. Usage Examples:**
+#### **2. Usage Examples:**
 #### 2.1 Api testing workflow:
 #### 2.2 Documentation/Links:
 #### 2.3 License:
