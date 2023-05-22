@@ -26,7 +26,7 @@ public class CustomerTest {
         Faker faker = new Faker();
         customerPOJO = new CustomerPOJO();
         customerPOJO.setName(faker.name().firstName());
-        customerPOJO.setId(faker.idNumber().hashCode());
+//        customerPOJO.setId(faker.idNumber().hashCode());
         customerPOJO.setLocation(faker.address().city());
         customerPOJO.setEmail(faker.internet().emailAddress());
     }
@@ -59,6 +59,7 @@ public class CustomerTest {
     public void getCustomerByID(ITestContext context) throws IOException {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         Response response = CustomerEndPoint.getCustomerById(context.getAttribute("id").toString());
+
         ObjectMapper objectMapper = new ObjectMapper();
         CustomerPOJO customerPOJO1 = objectMapper.readValue(response.getBody().asString(), CustomerPOJO.class);
         Assert.assertFalse(customerPOJO1.getName().isEmpty());
@@ -88,7 +89,7 @@ public class CustomerTest {
 
     }
 
-//    @Test(testName = "Delete customer by ID", dependsOnMethods = {"createNewCustomer"}, priority = 5)
+    @Test(testName = "Delete customer by ID", dependsOnMethods = {"createNewCustomer"}, priority = 5, enabled = false)
     public void deleteCustomerById(ITestContext context) {
         RestAssured.filters(new ResponseLoggingFilter(), new RequestLoggingFilter());
 

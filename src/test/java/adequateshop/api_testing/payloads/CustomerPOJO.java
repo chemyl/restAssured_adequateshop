@@ -39,4 +39,6 @@ public class CustomerPOJO {
         this.location = location;
     }
 
+//    public void setId(int hashCode) {
+//    }
 }

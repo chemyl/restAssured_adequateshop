@@ -7,6 +7,9 @@ The project contains a suitable framework for easily testing various types of re
 =>>> JSON Schema Validation
 =>>> POJO Configuration
 =>>> Clear Routes architecture
+=>>> DDT with XLS to POJO
+=>>> DDT with @DataProvider
+=>>> Allure Surefire Report
 =>>> 
 #### 1.2 Based on:
 Java 11; Maven ; TestNG 7.7.1; RestAssured 5.3.0; 
