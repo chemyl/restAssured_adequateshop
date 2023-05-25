@@ -9,6 +9,9 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -20,19 +23,25 @@ import java.io.IOException;
 public class CustomerTest {
 
     CustomerPOJO customerPOJO;
+    Faker faker = new Faker();
+    public Logger logger;
 
     @BeforeTest
     public void setUpData() {
-        Faker faker = new Faker();
         customerPOJO = new CustomerPOJO();
         customerPOJO.setName(faker.name().firstName());
 //        customerPOJO.setId(faker.idNumber().hashCode());
         customerPOJO.setLocation(faker.address().city());
         customerPOJO.setEmail(faker.internet().emailAddress());
+        logger = LogManager.getLogger(this.getClass());         //Initialization of logging
+        logger.isEnabled(Level.INFO);
     }
 
-    @Test(testName = "Create new Customer", groups = {})
+    @Test(testName = "Create new Customer")
     public void createNewCustomer(ITestContext context) {
+        logger.warn("Hello this is console log");
+        logger.info("message info log");
+        logger.info(customerPOJO);
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         Response response = CustomerEndPoint.createCustomer(customerPOJO);
         context.setAttribute("id", response.body().jsonPath().getInt("id"));

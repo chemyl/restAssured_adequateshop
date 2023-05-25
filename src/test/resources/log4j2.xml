@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="debug">
+    <Properties>
+        <Property name="basePath">./target/logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss}"/>
+        </Console>
+
+        <RollingFile name="APPLICATION" fileName="${basePath}/app.log" filePattern="logs/app-%i.log">
+            <PatternLayout pattern="%5p [%t] (%F:%L) - %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="75MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="log4jconverter" level="DEBUG" additivity="false">
+            <AppenderRef ref="APPLICATION"/>
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="APPLICATION"/>
+        </Root>
+    </Loggers>
+</Configuration>
